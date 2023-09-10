@@ -1,0 +1,35 @@
+Symbols:
+	L = Letters in the alphabet
+	D = digits 0-9
+	D+ = digits 1-9
+	*x = accepting state
+	-> = starting state
+	// = exception/invalid, not possible or can’t handle
+
+Identifier
+	L	D	{&}
+->1	2	//	//
+*2	2	4	3
+*3	//	//	//
+4	2	4	3
+
+Integer
+	{0}	D+
+->1	2	3
+*2	//	//
+*3	4	5
+*4	4	5
+*5	4	5
+
+Real
+	{0}	D+	{.}
+->1	2	3	//
+2	//	//	4
+3	5	6	4
+4	7	8	//
+5	5	6	4
+6	5	6	4
+*7	9	10	//
+*8	9	10	//
+*9	9	10	//
+*10	9	10	//
